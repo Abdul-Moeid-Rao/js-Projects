@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure & Lexical</title>
+</head>
+<body>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+    <button id="yellow">Yellow</button>
+    <button id="pink">Pink</button>
+</body>
+<script>
+    function colorHandler(color){
+
+        function newFun(){
+                document.body.style.backgroundColor = `${color}`
+        }
+        return newFun;
+    }
+    document.getElementById('orange').onclick = colorHandler('orange');
+    document.getElementById('green').onclick = colorHandler('green');
+    document.getElementById('yellow').onclick = colorHandler('yellow');
+    document.getElementById('pink').onclick = colorHandler('pink');
+</script>
+</html>

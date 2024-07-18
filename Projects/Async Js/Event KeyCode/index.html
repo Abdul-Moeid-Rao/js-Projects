@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event KeyCode</title>
+</head>
+<style>
+    table, th, td{
+        border: 1px solid #e7e7e7;
+    }
+    .project{
+        background-color: #1c1c1c;
+        color: #ffffff;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .color{
+        color:rgb(246, 255, 0);
+        display: flex;
+        flex-direction: row;
+    }
+</style>
+<body>
+    <div class="project">
+        <div id="insert">
+            <div class="key"> Press the Key and Watch ....</div>
+        </div>
+    </div>
+    <script>
+        const insert = document.getElementById('insert');
+
+        window.addEventListener('keydown', (e) => {
+            insert.innerHTML = `
+                  <div class="color">
+                    <table>
+                        <tr>
+                            <th>Key</th>
+                            <th>KeyCode</th>
+                            <th>Code</th>
+                        </tr>
+                        <tr>
+                            <th>${e.key === ' ' ? 'Space' : e.key}</th>
+                            <th>${e.keyCode}</th>
+                            <th>${e.code}</th>
+                        </tr>
+                    </table>       
+
+                  </div>
+            `
+        })
+    </script>
+</body>
+</html>

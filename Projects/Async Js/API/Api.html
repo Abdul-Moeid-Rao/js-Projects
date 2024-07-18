@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: aliceblue;
+            font-family: Arial, sans-serif;
+        }
+        .card {
+            display: none;
+            background-color: #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .card img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+        .button, .back-button {
+            display: block;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px auto;
+            max-width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <p id="para">Click here to get user Info:</p>
+    <div class="button" id="showCardButton">Click</div>
+    <div class="card" id="userCard">
+        <img id="userAvatar" src="" alt="User Avatar">
+        <h2 id="login"></h2>
+        <p id="userBio"></p>
+        <p id="userId"></p>
+        <div class="back-button" id="backButton">Back</div>
+    </div>
+
+    <script>
+        const userUrl = 'https://api.github.com/users/Abdul-Moeid-Rao';
+        const xhr = new XMLHttpRequest();
+        
+        xhr.open('GET', userUrl);
+        xhr.onreadystatechange = function() {
+            console.log(xhr.readyState);
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const data = JSON.parse(this.responseText);
+
+                document.getElementById('userAvatar').src = data.avatar_url;
+                document.getElementById('login').innerText = `${data.login}` || "No Name Provided";
+                document.getElementById('userId').innerText = `User Id : ${data.id}` || "No Bio Provided";
+                document.getElementById('userBio').innerText = `User Bio : ${data.bio}` || "No Location Provided";
+            }
+        }
+        xhr.send();
+
+        document.getElementById('showCardButton').addEventListener('click', function() {
+            document.getElementById('userCard').style.display = 'block';
+            document.querySelector('.button').style.display = 'none';
+            document.querySelector('#para').style.display = 'none';
+        });
+
+        document.getElementById('backButton').addEventListener('click', function() {
+            document.getElementById('userCard').style.display = 'none';
+            document.querySelector('.button').style.display = 'block';
+            document.querySelector('#para').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

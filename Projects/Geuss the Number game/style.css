@@ -1,0 +1,105 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #212121;
+    color: #fff;
+}
+
+#wrapper {
+    text-align: center;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid orange;
+    
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 5px 0;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-size: 18px;
+}
+
+input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+    border: 2px solid #555;
+    border-radius: 5px;
+    width: 50%;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #555;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #666;
+}
+
+.resultParas {
+    margin-top: 20px;
+}
+
+.guesses,
+.lastResult {
+    font-weight: bold;
+}
+
+.lowOrHi {
+    margin-top: 10px;
+    font-size: 16px;
+}
+@media (max-width: 700px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    #wrapper {
+        width: 100%;
+        padding: 15px;
+    }
+
+    input[type="text"] {
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    label {
+        font-size: 16px;
+    }
+
+    input[type="submit"] {
+        font-size: 14px;
+    }
+
+    .lowOrHi {
+        font-size: 14px;
+    }
+}
